@@ -1,0 +1,11 @@
+D:\playground\CodeWithRust\rustlings\rustlings\target\debug\deps\libbitflags-1fe9ccd365bc1165.rmeta: C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\lib.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\iter.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\parser.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\traits.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\public.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\internal.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\external.rs
+
+D:\playground\CodeWithRust\rustlings\rustlings\target\debug\deps\bitflags-1fe9ccd365bc1165.d: C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\lib.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\iter.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\parser.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\traits.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\public.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\internal.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\external.rs
+
+C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\lib.rs:
+C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\iter.rs:
+C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\parser.rs:
+C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\traits.rs:
+C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\public.rs:
+C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\internal.rs:
+C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bitflags-2.8.0\src\external.rs:

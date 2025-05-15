@@ -1,0 +1,6 @@
+D:\playground\CodeWithRust\rustlings\rustlings\target\debug\deps\libfastrand-3355f6b1973ddbb0.rmeta: C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fastrand-2.3.0\src\lib.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fastrand-2.3.0\src\global_rng.rs
+
+D:\playground\CodeWithRust\rustlings\rustlings\target\debug\deps\fastrand-3355f6b1973ddbb0.d: C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fastrand-2.3.0\src\lib.rs C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fastrand-2.3.0\src\global_rng.rs
+
+C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fastrand-2.3.0\src\lib.rs:
+C:\Users\23new\.cargo\registry\src\index.crates.io-6f17d22bba15001f\fastrand-2.3.0\src\global_rng.rs:
