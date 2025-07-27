@@ -1,58 +1,58 @@
-// ===========================
-// RUST STRUCTS PRACTICE ANSWERS
-// ===========================
+// // ===========================
+// // RUST STRUCTS PRACTICE ANSWERS
+// // ===========================
 
-// Q1
-struct Person {
-    name: String,
-    age: u32,
-}
+// // Q1
+// struct Person {
+//     name: String,
+//     age: u32,
+// }
 
-// Q2
-let alice = Person {
-    name: String::from("Alice"),
-    age: 30,
-};
+// // Q2
+// let alice = Person {
+//     name: String::from("Alice"),
+//     age: 30,
+// };
 
-// Q3
-impl Person {
-    fn greet(&self) {
-        println!("Hello, my name is {}", self.name);
-    }
-}
+// // Q3
+// impl Person {
+//     fn greet(&self) {
+//         println!("Hello, my name is {}", self.name);
+//     }
+// }
 
-// Q4
-struct Rectangle {
-    width: u32,
-    height: u32,
-}
+// // Q4
+// struct Rectangle {
+//     width: u32,
+//     height: u32,
+// }
 
-impl Rectangle {
-    fn area(&self) -> u32 {
-        self.width * self.height
-    }
-}
+// impl Rectangle {
+//     fn area(&self) -> u32 {
+//         self.width * self.height
+//     }
+// }
 
-// Q5
-struct Color(u8, u8, u8);
+// // Q5
+// struct Color(u8, u8, u8);
 
-// Q6
-struct Marker;
+// // Q6
+// struct Marker;
 
 // Q7
-pub struct Student {
-    pub id: u32,
-    grade: char,
-}
+// pub struct Student {
+//     pub id: u32,
+//     grade: char,
+// }
 
-impl Student {
-    pub fn new(id: u32, grade: char) -> Self {
-        Student { id, grade }
-    }
-    pub fn get_grade(&self) -> char {
-        self.grade
-    }
-}
+// impl Student {
+//     pub fn new(id: u32, grade: char) -> Self {
+//         Student { id, grade }
+//     }
+//     pub fn get_grade(&self) -> char {
+//         self.grade
+//     }
+// }
 
 // Q8
 struct Circle {

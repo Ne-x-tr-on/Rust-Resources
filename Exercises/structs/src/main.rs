@@ -1,3 +1,5 @@
+#![allow(warnings)]
+
 fn main(){
 
 //     struct Book{
@@ -21,6 +23,7 @@ let mut user1: User = User{
     sign_in_count:1,
 
 };
+
   println!("{}...{}...{}...{}",user1.username,user1.email,user1.active,user1.sign_in_count);
   user1.username = String::from("David Kamau");
   println!("{}",user1.username);
@@ -34,11 +37,33 @@ let mut user1: User = User{
     }
   }
 
-// Tuple Strucs
-struct Colors(i32,i32,i32);
 
-let black:Colors = Colors(0,0,0);
-println!("{},{},{}",black.0,black.1,black.2);
+  fn build_user(email:String,username:String) -> User{
+    user{
+      active:true,
+      email,
+      username,
+      sign_in_count,
+    }
+  }
+
+
+
+// Tuple Strucs
+struct Color(i32,i32,i32);
+let black = Color(0,0,0,0);
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
