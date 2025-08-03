@@ -10,7 +10,9 @@ fn main() {
     // Strings
     let mut s = String::from("Hello");
     s.push('!');
+    println!("{}",s);
     s.push_str(" Rustacean");
+    println!("{}",s);
     println!("{}", s.replace("Rustacean", "Axum Dev"));
 
     // Vectors
@@ -21,7 +23,7 @@ fn main() {
     }
 
     // Option and Result Methods
-    let some_val: Option<i32> = Some(10);
+    let some_val: Option<i32> = Some("t");
     println!("Is some? {}", some_val.is_some());
     println!("Unwrapped: {}", some_val.unwrap_or(0));
 
@@ -39,11 +41,10 @@ fn main() {
     }
 
     // ===== 3. FUNCTIONS =====
-    fn greet(name: &str) -> String {
-        format!("Hello, {}!", name)
+    fn greet(name:&str)-> String{
+        format!("Hello {}",name);
     }
-    println!("{}", greet("Newton"));
-
+    println!("Hello ",greet("Newton"));
     // ===== 4. ENUMS + MATCH =====
     enum TrafficLight {
         Red,
@@ -136,79 +137,79 @@ fn main() {
 
 // 50+ Rust methods demonstration across Vec, String, HashMap, Option, Result, etc.
 
-use std::collections::HashMap;
+// use std::collections::HashMap;
 
-fn main() {
-    // === Vec<T> methods ===
-    let mut vec = Vec::new();
-    vec.push(1);
-    vec.push(2);
-    vec.push(3);
-    println!("vec: {:?}", vec);
-    vec.pop();
-    println!("vec after pop: {:?}", vec);
-    println!("len: {}", vec.len());
-    println!("is_empty: {}", vec.is_empty());
-    vec.insert(1, 10);
-    println!("after insert: {:?}", vec);
-    vec.remove(0);
-    println!("after remove: {:?}", vec);
-    vec.clear();
-    println!("after clear: {:?}", vec);
+// fn main() {
+//     // === Vec<T> methods ===
+//     let mut vec = Vec::new();
+//     vec.push(1);
+//     vec.push(2);
+//     vec.push(3);
+//     println!("vec: {:?}", vec);
+//     vec.pop();
+//     println!("vec after pop: {:?}", vec);
+//     println!("len: {}", vec.len());
+//     println!("is_empty: {}", vec.is_empty());
+//     vec.insert(1, 10);
+//     println!("after insert: {:?}", vec);
+//     vec.remove(0);
+//     println!("after remove: {:?}", vec);
+//     vec.clear();
+//     println!("after clear: {:?}", vec);
 
-    // === String methods ===
-    let mut s = String::from("Rust");
-    s.push('y');
-    s.push_str(" is fast!");
-    println!("String: {}", s);
-    println!("len: {}", s.len());
-    println!("contains 'fast': {}", s.contains("fast"));
-    println!("starts_with 'Rusty': {}", s.starts_with("Rusty"));
-    println!("ends_with '!': {}", s.ends_with("!"));
-    let replaced = s.replace("fast", "awesome");
-    println!("replaced: {}", replaced);
-    println!("to_uppercase: {}", s.to_uppercase());
+//     // === String methods ===
+//     let mut s = String::from("Rust");
+//     s.push('y');
+//     s.push_str(" is fast!");
+//     println!("String: {}", s);
+//     println!("len: {}", s.len());
+//     println!("contains 'fast': {}", s.contains("fast"));
+//     println!("starts_with 'Rusty': {}", s.starts_with("Rusty"));
+//     println!("ends_with '!': {}", s.ends_with("!"));
+//     let replaced = s.replace("fast", "awesome");
+//     println!("replaced: {}", replaced);
+//     println!("to_uppercase: {}", s.to_uppercase());
 
-    // === HashMap methods ===
-    let mut map = HashMap::new();
-    map.insert("lang", "Rust");
-    map.insert("speed", "fast");
-    println!("map: {:?}", map);
-    println!("get lang: {:?}", map.get("lang"));
-    println!("contains_key 'speed': {}", map.contains_key("speed"));
-    map.remove("speed");
-    println!("after remove: {:?}", map);
+//     // === HashMap methods ===
+//     let mut map = HashMap::new();
+//     map.insert("lang", "Rust");
+//     map.insert("speed", "fast");
+//     println!("map: {:?}", map);
+//     println!("get lang: {:?}", map.get("lang"));
+//     println!("contains_key 'speed': {}", map.contains_key("speed"));
+//     map.remove("speed");
+//     println!("after remove: {:?}", map);
 
-    // === Option methods ===
-    let some_val = Some(10);
-    println!("is_some: {}", some_val.is_some());
-    println!("unwrap: {}", some_val.unwrap());
-    println!("map +1: {:?}", some_val.map(|x| x + 1));
-    println!("unwrap_or 0: {}", some_val.unwrap_or(0));
+//     // === Option methods ===
+//     let some_val = Some(10);
+//     println!("is_some: {}", some_val.is_some());
+//     println!("unwrap: {}", some_val.unwrap());
+//     println!("map +1: {:?}", some_val.map(|x| x + 1));
+//     println!("unwrap_or 0: {}", some_val.unwrap_or(0));
 
-    let none_val: Option<i32> = None;
-    println!("is_none: {}", none_val.is_none());
-    println!("unwrap_or 5: {}", none_val.unwrap_or(5));
+//     let none_val: Option<i32> = None;
+//     println!("is_none: {}", none_val.is_none());
+//     println!("unwrap_or 5: {}", none_val.unwrap_or(5));
 
-    // === Result methods ===
-    let ok: Result<i32, &str> = Ok(100);
-    println!("is_ok: {}", ok.is_ok());
-    println!("unwrap: {}", ok.unwrap());
-    println!("map x2: {:?}", ok.map(|x| x * 2));
-    println!("unwrap_or 0: {}", ok.unwrap_or(0));
+//     // === Result methods ===
+//     let ok: Result<i32, &str> = Ok(100);
+//     println!("is_ok: {}", ok.is_ok());
+//     println!("unwrap: {}", ok.unwrap());
+//     println!("map x2: {:?}", ok.map(|x| x * 2));
+//     println!("unwrap_or 0: {}", ok.unwrap_or(0));
 
-    let err: Result<i32, &str> = Err("Oops");
-    println!("is_err: {}", err.is_err());
-    println!("unwrap_or 0: {}", err.unwrap_or(0));
+//     let err: Result<i32, &str> = Err("Oops");
+//     println!("is_err: {}", err.is_err());
+//     println!("unwrap_or 0: {}", err.unwrap_or(0));
 
-    // === &str methods ===
-    let str_slice = "Hello Rust";
-    println!("len: {}", str_slice.len());
-    println!("contains 'Rust': {}", str_slice.contains("Rust"));
-    println!("split: {:?}", str_slice.split(' ').collect::<Vec<_>>());
-    println!("trim: '{}'", "  padded ".trim());
-    println!("replace: {}", str_slice.replace("Rust", "World"));
-    println!("starts_with 'Hello': {}", str_slice.starts_with("Hello"));
-    println!("ends_with 'Rust': {}", str_slice.ends_with("Rust"));
-    println!("to_lowercase: {}", str_slice.to_lowercase());
-}
+//     // === &str methods ===
+//     let str_slice = "Hello Rust";
+//     println!("len: {}", str_slice.len());
+//     println!("contains 'Rust': {}", str_slice.contains("Rust"));
+//     println!("split: {:?}", str_slice.split(' ').collect::<Vec<_>>());
+//     println!("trim: '{}'", "  padded ".trim());
+//     println!("replace: {}", str_slice.replace("Rust", "World"));
+//     println!("starts_with 'Hello': {}", str_slice.starts_with("Hello"));
+//     println!("ends_with 'Rust': {}", str_slice.ends_with("Rust"));
+//     println!("to_lowercase: {}", str_slice.to_lowercase());
+// }

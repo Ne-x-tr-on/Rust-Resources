@@ -55,7 +55,35 @@ let black = Color(0,0,0,0);
 
 
 
+struct User{
+    username:String,
+    id:i32,
+    email:String,
 
+}
+
+fn main(){
+    let mut user1 = User{
+        username:String::from("Newton"),
+        id:23,
+        email:String::from("myemail@gmail.com")
+    };
+    user1.email = String::from("actualemail@gmail.com");
+    println!("{}:{}  ---> {}",user1.username,user1.id,user1.email);
+
+
+    fn build_user(_email:String,_username:String) -> User{
+    User { 
+        username: (String::from("Peris")),
+        id: (1234),
+        email: (String::from("peris@gmail.com"))
+     };
+             
+}
+
+
+
+}
 
 
 
