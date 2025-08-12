@@ -1,4 +1,3 @@
-# Ignore all Makefile-related files from language stats
 Makefile linguist-detectable=false
 GNUmakefile linguist-detectable=false
 *.mk linguist-detectable=false
