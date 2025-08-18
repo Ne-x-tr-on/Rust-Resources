@@ -1,13 +1,5 @@
-enum Newton{
-    name,
-    gender,
-    vision,
-    title,
-}
+pub mod test_traits;
 
-
-#[Debug]
 fn main(){
-    let _name = Newton::name;
-    println!("Hey {:?}",_name);
+    test_traits::create_person();
 }
