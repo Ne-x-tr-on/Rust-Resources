@@ -1,1 +1,1 @@
-D:\playground\rustplayground\Exercises\structs\target\debug\structs.exe: D:\playground\rustplayground\Exercises\structs\src\main.rs
+D:\playground\Rustplayground\General\structs\target\debug\structs.exe: D:\playground\Rustplayground\General\structs\src\main.rs

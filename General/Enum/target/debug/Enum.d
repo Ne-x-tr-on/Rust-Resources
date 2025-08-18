@@ -1,1 +1,1 @@
-D:\playground\RustPlayground\Exercises\Enum\target\debug\Enum.exe: D:\playground\RustPlayground\Exercises\Enum\src\main.rs
+D:\playground\Rustplayground\General\Enum\target\debug\Enum.exe: D:\playground\Rustplayground\General\Enum\src\main.rs
