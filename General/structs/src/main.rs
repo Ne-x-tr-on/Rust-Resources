@@ -1,3 +1,4 @@
+pub mod person;
 // #![allow(warnings)]
 
 // fn main(){
@@ -86,30 +87,36 @@
 // }
 
 fn main(){
-  let mut account = BankAccount{
-    owner:"Newton".to_string(),
-    balance : 100.00,
-  };
+  // let mut account = BankAccount{
+  //   owner:"Newton".to_string(),
+  //   balance : 100.00,
+  // };
 
-  account.check_balance();
-  account.withdraw(100.0);
-   account.check_balance();
+  // account.check_balance();
+  // account.withdraw(100.0);
+  //  account.check_balance();
+  let myperson = person::new_person();
+  println!("First name: {0}\nLast name {1}\nBirth_year: {2}\nBirth_month: {3}\n",myperson.first_name,myperson.last_name,myperson.birth_year,myperson.birth_month);
+
+  let mycar = person::firstcar();
+  println!("Type: {:?}\nColor:{:?}",mycar.car_type,mycar.color);
+
 
 }
 
 
-struct BankAccount{
-  owner:String,
-  balance: f64,
-}
+// struct BankAccount{
+//   owner:String,
+//   balance: f64,
+// }
 
-impl BankAccount{
-  fn withdraw(&mut self,amount:f64){
-    println!("Withdrawing {} from acoount owned by {}",amount,self.owner);
-    self.balance -= amount;
-  }
+// impl BankAccount{
+//   fn withdraw(&mut self,amount:f64){
+//     println!("Withdrawing {} from acoount owned by {}",amount,self.owner);
+//     self.balance -= amount;
+//   }
 
-  fn check_balance(&self){
-    println!("Your balance is Kshs {}",self.balance);
-  }
-}
+//   fn check_balance(&self){
+//     println!("Your balance is Kshs {}",self.balance);
+//   }
+// }

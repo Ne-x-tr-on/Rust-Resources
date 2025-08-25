@@ -1,5 +1,6 @@
-D:\playground\Rustplayground\General\structs\target\debug\deps\structs.d: src\main.rs
+D:\Playground\rustplayground\General\structs\target\debug\deps\structs.d: src\main.rs src\person.rs
 
-D:\playground\Rustplayground\General\structs\target\debug\deps\structs.exe: src\main.rs
+D:\Playground\rustplayground\General\structs\target\debug\deps\structs.exe: src\main.rs src\person.rs
 
 src\main.rs:
+src\person.rs:

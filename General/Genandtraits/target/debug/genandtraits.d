@@ -1,1 +1,1 @@
-D:\playground\rustplayground\General\GenandTraits\target\debug\genandtraits.exe: D:\playground\rustplayground\General\GenandTraits\src\main.rs D:\playground\rustplayground\General\GenandTraits\src\test_traits.rs
+D:\Playground\rustplayground\General\Genandtraits\target\debug\genandtraits.exe: D:\Playground\rustplayground\General\Genandtraits\src\main.rs D:\Playground\rustplayground\General\Genandtraits\src\test_traits.rs
