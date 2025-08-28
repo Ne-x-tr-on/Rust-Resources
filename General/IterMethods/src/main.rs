@@ -1,3 +1,5 @@
+pub mod itermethods;
+
 fn main() {
-    println!("Hello, world!");
+    itermethods::test_iterators();
 }
