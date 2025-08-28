@@ -1,8 +1,7 @@
-pub mod vec;
+pub mod testvec;
 
 fn main() {
-    println!("Working With Vectors");
-    vec::test_vec_int();
-    vec::vec_string();
-    vec::test_vec_car();
+//  testvec::test_vec_int();
+//  testvec::test_vec_string();
+ testvec::test_vec_car();
 }

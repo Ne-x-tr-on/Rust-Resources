@@ -1,6 +1,6 @@
-D:\playground\rustplayground\General\vec\target\debug\deps\Vec.d: src\main.rs src\vec.rs
+D:\PlayGround\RustPlayground\General\Vec\target\debug\deps\Vec.d: src\main.rs src\testvec.rs
 
-D:\playground\rustplayground\General\vec\target\debug\deps\Vec.exe: src\main.rs src\vec.rs
+D:\PlayGround\RustPlayground\General\Vec\target\debug\deps\Vec.exe: src\main.rs src\testvec.rs
 
 src\main.rs:
-src\vec.rs:
+src\testvec.rs:
