@@ -1,0 +1,1 @@
+fn(Json<SignupData>) -> impl Future<Output = Json<ResponseMsg>> {handle_signup}: Handler<_, _>

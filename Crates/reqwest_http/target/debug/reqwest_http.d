@@ -1,0 +1,1 @@
+D:\PlayGround\RustPlayground\Crates\reqwest_http\target\debug\reqwest_http.exe: D:\PlayGround\RustPlayground\Crates\reqwest_http\src\http.rs D:\PlayGround\RustPlayground\Crates\reqwest_http\src\main.rs D:\PlayGround\RustPlayground\Crates\reqwest_http\src\test.rs
