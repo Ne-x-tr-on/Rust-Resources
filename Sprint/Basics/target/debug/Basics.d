@@ -1,0 +1,1 @@
+D:\PlayGround\RustPlayground\Sprint\Basics\target\debug\Basics.exe: D:\PlayGround\RustPlayground\Sprint\Basics\src\compound_data_type.rs D:\PlayGround\RustPlayground\Sprint\Basics\src\main.rs D:\PlayGround\RustPlayground\Sprint\Basics\src\primitive_data_type.rs
