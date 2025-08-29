@@ -1,3 +1,3 @@
 ## Rust Playground
-- A dedicated Repository decrusturing crates in Rust and Rust itself 
+- A dedicated Repository for decrusturing crates in Rust and Rust itself 
 - Rust Archive 
