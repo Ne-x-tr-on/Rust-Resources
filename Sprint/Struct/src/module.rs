@@ -1,6 +1,7 @@
 use std::cell::Cell;
+
 pub fn test(){
-  println!("Raptide Song");
+  println!("Raptide");
 }
 
 pub enum IsHappy{
