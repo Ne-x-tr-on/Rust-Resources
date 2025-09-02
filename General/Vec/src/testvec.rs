@@ -15,7 +15,7 @@ pub fn test_vec_int(){
 
   println!("First item in Vec is: {:?}",my_ints[4]);
 
-  println!("Total Range: {:?}",my_ints.as_slice());
+  println!("Total Range: {:?}",my_ints.as_slice());1;
 
   println!("Specific Range: {:?}",&(&my_ints).as_slice()[0..2]);
 
@@ -23,6 +23,7 @@ pub fn test_vec_int(){
 
 }
 
+#[allow(unused)]
 pub fn test_vec_string(){
    let first_name: Vec<&str> = vec![
         "Alice",
