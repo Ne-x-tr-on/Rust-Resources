@@ -5,7 +5,8 @@ fn main(){
     let mut name = String::new();
     println!("What is your name: ");
     
-    io::stdin().read_line(&mut name).expect("Error Reading name");
+    io::stdin().read_line(&mut name)
+.expect("Error Reading name");
     let name = name.trim();
   
 
