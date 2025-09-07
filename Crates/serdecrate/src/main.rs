@@ -1,12 +1,11 @@
-pub mod serdecrate;
+// pub mod serdecrate;
+pub mod simply;
 
-use serde::{Deserialize,Serialize};
-use serde_json::{to_string_pretty,from_str};
+use crate::simply::Dog;
+// use crate::serdecrate::Dog;
+// use crate::serdecrate::DogOwner;
 
-use crate::serdecrate::Dog;
-use crate::serdecrate::DogOwner;
-
-fn main(){
+// fn main(){
     // let owner1 = DogOwner{
     //     first_name:"Newton".to_string(),
     //     last_name:"Kamau".to_string(),
@@ -35,23 +34,50 @@ fn main(){
     //     last_name:"Kamau".to_string(),
     // };
 
-fn deserialize(){
+// fn deserialize(){
 
-    let json_string: &str = r#"
-    {
-  "Name": "Tommy",
-  "YearBorn": 2012,
-  "Owner": {
-    "FirstName": "Newton",
-    "LastName": "Kamau"
-  }
-}
-  "#;
+//     let json_string: &str = r#"
+//     {
+//   "Name": "Tommy",
+//   "YearBorn": 2012,
+//   "Owner": {
+//     "FirstName": "Newton",
+//     "LastName": "Kamau"
+//   }
+// }
+//   "#;
 
-     let dog_deser = from_str::<Dog>(json_string);
-     match dog_deser{
-        Ok(data) => println!("{:?}",data),
-        Err(e) => println!("{:#?}",e),
-     }
-   }
+  //    let dog_deser = from_str::<Dog>(json_string);
+  //    match dog_deser{
+  //       Ok(data) => println!("{:?}",data),
+  //       Err(e) => println!("{:#?}",e),
+  //    }
+  //  }
+// }
+
+fn main() {
+    // JSON string (coming from file, API, etc.)
+    let json_str = r#"
+        {
+            "name": "Tommy",
+            "age": 3
+        }
+    "#;
+
+    // 1️⃣ Deserialize JSON → Rust struct
+    let dog: Dog = serde_json::from_str(json_str).unwrap();
+    println!("Deserialized: {:?}", dog);
+
+    // 2️⃣ Serialize Rust struct → JSON
+    let dog_json = serde_json::to_string(&dog).unwrap();
+    println!("Serialized: {}", dog_json);
+
+
+    // let dog_deser = from_str::<Dog>(json_string);
+    //  match dog_deser{
+    //     Ok(data) => println!("{:?}",data),
+    //     Err(e) => println!("{:#?}",e),
+    //  }
 }
+
+
