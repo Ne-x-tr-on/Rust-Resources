@@ -2,8 +2,27 @@
 // While Loop 
 // For Each Loop
 fn main(){
-  loop{
-    println!("I can do it");
-  }
+//normal Loop
+ loopfn();
+ whileloopfn();
+ frlfn();
 }
-// Create a detailed learning roadmap for the following finance topics: Forex, trading, bonds, insurance, and Quadratic Funding. Include stages, timelines, practical tips, and recommended resources. Explain which parts fall under traditional finance and which under blockchain, and show where they overlap
+
+fn loopfn(){
+ // let name = String::from("Rust");
+ struct Person{
+ name:String,
+ age:Strong,
+};
+
+fn try person()->Person{
+name:"Newton".to_string(),
+age:19,
+};
+
+for _ in 99u8{
+println!("Values Enumarating")
+;
+};
+ 
+};
