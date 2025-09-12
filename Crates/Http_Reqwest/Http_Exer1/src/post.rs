@@ -20,22 +20,20 @@ pub fn test_http() {
     "age": 19
   });
 
-  let payload2 = json!({})
+  let payload2 = json!({});
 
     // POST request
-    let post_result = http_client
-        .post(url)
-        .json(&payload) // <-- handles headers + JSON encoding
-        .send();
+  let post_result = http_client
+      .post(url)
+      .json(&payload)
+      .send();
 
-    match post_result {
-        Ok(resp) => {
-            println!("✅ POST Status: {}", resp.status());
-            match resp.text() {
-                Ok(body) => println!("📦 POST Response Body:\n{}", body),
-                Err(e) => eprintln!("❌ Error reading POST body: {:?}", e),
-            }
-        }
-        Err(e) => eprintln!("❌ POST request failed: {:?}", e),
+  match post_result{
+    Ok(response)=>{
+      println!("Response:{}",response.status())
     }
+    Err(e) => {
+      eprintln!("Error: {}",e)
+    }
+  }
 }
