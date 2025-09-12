@@ -1,3 +1,10 @@
+pub mod get;
+pub mod post;
+
+fn main(){
+    // get::test_http();
+    post::test_http();
+}
 
 // use reqwest;
 // use std::error::Error;
@@ -34,30 +41,31 @@
 // }
 
 
-use reqwest::blocking::Client;
+// use reqwest::blocking::Client;
 
-fn main() {
-    // The URL must include the scheme (http/https)
-    let url = "https://nextronspace.netlify.app";
+// fn main() {
+//     // The URL must include the scheme (http/https)
+//     let url = "https://nextronspace.netlify.app";
 
-    // Create the HTTP client
-    let http_client = Client::new();
+//     // Create the HTTP client
+//     let http_client = Client::new();
 
-    // Send GET request
-    let http_result = http_client.get(url).send();
+//     // Send GET request
+//     let http_result = http_client.get(url).send();
 
-    match http_result {
-        Ok(response) => {
-            println!("Status: {}", response.status());
-            // If you want to print the body:
-            match response.text() {
-                Ok(body) => println!("Body:\n{}", body),
-                Err(e) => eprintln!("Error reading body: {}", e),
-            }
-        }
-        Err(e) => {
-            eprintln!("Request failed: {}", e);
-        }
-    }
-}
+//     match http_result {
+//         Ok(response) => {
+//             println!("Status: {}", response.status());
+//             // If you want to print the body:
+//             match response.text() {
+//                 Ok(body) => println!("Body:\n{}", body),
+//                 Err(e) => eprintln!("Error reading body: {}", e),
+//             }
+//         }
+//         Err(e) => {
+//             eprintln!("Request failed: {}", e);
+//         }
+//     }
+// }
+
 
