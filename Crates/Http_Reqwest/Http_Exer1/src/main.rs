@@ -1,93 +1,63 @@
-// use reqwest::blocking;
 
-// fn main() -> Result<(), Box<dyn std::error::Error>> {
-//     // 1. Send a GET request to the website
-//     let response = blocking::get("https://httpbin.org/get")?;
+// use reqwest;
+// use std::error::Error;
 
-//     // 2. Turn the response into text
-//     let body = response.text()?;
+// #[tokio::main]
+// async fn main() -> Result<(), Box<dyn Error>> {
+//     // Make an HTTP GET request
+//     let http_result = reqwest::get("https://httpbin.org/status/200").await;
 
-//     // 3. Print it out
-//     println!("Website says: {}", body);
-
-//     Ok(())
-// }
-
-
-// use reqwest::blocking::Client;
-// use std::collections::HashMap;
-
-// fn main() -> Result<(), Box<dyn std::error::Error>> {
-//     let client = Client::new();
-
-//     let mut order = HashMap::new();
-//     order.insert("food", "Cheeseburger");
-//     order.insert("drink", "Coke");
-
-//     let res = client.post("https://httpbin.org/post")
-//         .json(&order)
-//         .send()?;
-
-//     println!("Server reply: {}", res.text()?);
-
-//     Ok(())
-// }
-
-
-// use reqwest::blocking::Client;
-// use serde::Deserialize;
-// use std::collections::HashMap;
-
-// #[derive(Deserialize, Debug)]
-// struct ServerReply {
-//     json: HashMap<String, String>,
-// }
-
-// fn main() -> Result<(), Box<dyn std::error::Error>> {
-//     let client = Client::new();
-
-//     let mut order = HashMap::new();
-//     order.insert("food".to_string(), "Cheeseburger".to_string());
-//     order.insert("drink".to_string(), "Coke".to_string());
-
-//     let res = client
-//         .post("https://httpbin.org/post")
-//         .json(&order)
-//         .send()?
-//         .json::<ServerReply>()?; // <-- Deserialize into struct
-
-//     println!("Parsed reply: {:?}", res);
-
-//     // Accessing values
-//     println!("Food ordered: {}", res.json["food"]);
-//     println!("Drink ordered: {}", res.json["drink"]);
+//     // Process the result
+//     match http_result {
+//         Ok(response) => {
+//             // The .status() method returns the HTTP status code
+//             let status = response.status();
+//             println!("Status: {} ({})", status, status.as_u16());
+            
+//             // You can also check specific properties of the status
+//             println!("Is success: {}", status.is_success());
+//             println!("Is client error: {}", status.is_client_error());
+//             println!("Is server error: {}", status.is_server_error());
+            
+//             // If you want to print the body:
+//             match response.text().await {
+//                 Ok(body) => println!("Body:\n{}", body),
+//                 Err(e) => eprintln!("Error reading body: {}", e),
+//             }
+//         }
+//         Err(e) => {
+//             eprintln!("Request failed: {}", e);
+//         }
+//     }
 
 //     Ok(())
 // }
 
-use axum::{routing::get, Router};
-use std::net::SocketAddr;
-use hyper::server::Server; // Server comes via hyper-util under the hood
 
-#[tokio::main]
-async fn main() {
-    // Define routes
-    let app = Router::new()
-        .route("/", get(|| async { "Hello from Axum 🚀" }))
-        .route("/ping", get(|| async { "Pong 🏓" }));
+use reqwest::blocking::Client;
 
-    // Address
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
-    println!("Server running at http://{}", addr);
+fn main() {
+    // The URL must include the scheme (http/https)
+    let url = "https://nextronspace.netlify.app";
 
-    // Run server
-    Server::bind(&addr)
-        .serve(app.into_make_service())
-        .await
-        .unwrap();
+    // Create the HTTP client
+    let http_client = Client::new();
+
+    // Send GET request
+    let http_result = http_client.get(url).send();
+
+    match http_result {
+        Ok(response) => {
+            println!("Status: {}", response.status());
+            // If you want to print the body:
+            match response.text() {
+                Ok(body) => println!("Body:\n{}", body),
+                Err(e) => eprintln!("Error reading body: {}", e),
+            }
+        }
+        Err(e) => {
+            eprintln!("Request failed: {}", e);
+        }
+    }
 }
-
-
-
-
 
