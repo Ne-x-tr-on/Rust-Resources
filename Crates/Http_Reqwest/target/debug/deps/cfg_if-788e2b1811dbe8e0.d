@@ -1,0 +1,7 @@
+D:\PlayGround\RustPlayground\Crates\reqwest_http\Http_Reqwest\target\debug\deps\cfg_if-788e2b1811dbe8e0.d: C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cfg-if-1.0.3\src\lib.rs
+
+D:\PlayGround\RustPlayground\Crates\reqwest_http\Http_Reqwest\target\debug\deps\libcfg_if-788e2b1811dbe8e0.rlib: C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cfg-if-1.0.3\src\lib.rs
+
+D:\PlayGround\RustPlayground\Crates\reqwest_http\Http_Reqwest\target\debug\deps\libcfg_if-788e2b1811dbe8e0.rmeta: C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cfg-if-1.0.3\src\lib.rs
+
+C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\cfg-if-1.0.3\src\lib.rs:
