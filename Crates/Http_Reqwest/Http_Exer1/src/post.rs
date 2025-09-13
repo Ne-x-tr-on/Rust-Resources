@@ -2,7 +2,7 @@
 use reqwest::blocking::Client;
 use serde_json::json;
 
-pub fn test_http() {
+pub fn test_exer1() {
     let http_client = Client::new();
     let url = "http://localhost:3000/send_data";
 
@@ -20,7 +20,7 @@ pub fn test_http() {
     "age": 19
   });
 
-  let payload2 = json!({});
+  // let payload2 = json!({});
 
     // POST request
   let post_result = http_client

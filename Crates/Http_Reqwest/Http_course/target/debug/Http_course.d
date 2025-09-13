@@ -1,0 +1,1 @@
+D:\PlayGround\RustPlayground\Crates\Http_Reqwest\Http_course\target\debug\Http_course.exe: D:\PlayGround\RustPlayground\Crates\Http_Reqwest\Http_course\src\httpmod.rs D:\PlayGround\RustPlayground\Crates\Http_Reqwest\Http_course\src\main.rs

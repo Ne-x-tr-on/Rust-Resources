@@ -3,7 +3,7 @@ pub mod post;
 
 fn main(){
     // get::test_http();
-    post::test_http();
+    post::test_exer1();
 }
 
 // use reqwest;
