@@ -1,10 +1,13 @@
 pub mod async_;
-use crate::async_::get_example;
-use crate::async_::post_example;
+pub mod simple_send;
+
+use crate::simple_send::post_example;
+// use crate::async_::get_example;
+// use crate::async_::post_example;
 
 #[tokio::main]
 async fn main(){
-    if let Err(e) = get_example().await{
+    if let Err(e) = post_example().await{
         eprintln!("Error: {}",e);
     }
 
