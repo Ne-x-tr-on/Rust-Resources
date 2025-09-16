@@ -5,7 +5,8 @@ use tokio::time::sleep;
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     let client = Client::new();
-    let url = "https://httpbin.org/status/500"; // will return server error
+    // let url = "https://httpbin.org/status/50"; // will return server error
+    let url = "https://nextronspace.netlify.app";
 
     let mut attempts = 0;
     let max_retries = 3;

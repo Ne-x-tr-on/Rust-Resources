@@ -1,7 +1,5 @@
-D:\PlayGround\RustPlayground\Crates\reqwest_http\target\debug\deps\reqwest_http.d: src\main.rs src\http.rs src\test.rs
+D:\playground\RustPlayground\Crates\Http_Reqwest\Http_production\target\debug\deps\reqwest_http.d: src\main.rs
 
-D:\PlayGround\RustPlayground\Crates\reqwest_http\target\debug\deps\reqwest_http.exe: src\main.rs src\http.rs src\test.rs
+D:\playground\RustPlayground\Crates\Http_Reqwest\Http_production\target\debug\deps\reqwest_http.exe: src\main.rs
 
 src\main.rs:
-src\http.rs:
-src\test.rs:
