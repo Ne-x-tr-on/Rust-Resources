@@ -1,0 +1,9 @@
+D:\playground\Rustplayground\Axum\Axum_Repo\Sample_Project_Boilerplate\target\debug\deps\potential_utf-ba5ef84165f00f94.d: C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\potential_utf-0.1.3\src\lib.rs C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\potential_utf-0.1.3\src\uchar.rs C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\potential_utf-0.1.3\src\ustr.rs
+
+D:\playground\Rustplayground\Axum\Axum_Repo\Sample_Project_Boilerplate\target\debug\deps\libpotential_utf-ba5ef84165f00f94.rlib: C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\potential_utf-0.1.3\src\lib.rs C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\potential_utf-0.1.3\src\uchar.rs C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\potential_utf-0.1.3\src\ustr.rs
+
+D:\playground\Rustplayground\Axum\Axum_Repo\Sample_Project_Boilerplate\target\debug\deps\libpotential_utf-ba5ef84165f00f94.rmeta: C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\potential_utf-0.1.3\src\lib.rs C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\potential_utf-0.1.3\src\uchar.rs C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\potential_utf-0.1.3\src\ustr.rs
+
+C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\potential_utf-0.1.3\src\lib.rs:
+C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\potential_utf-0.1.3\src\uchar.rs:
+C:\Users\23new\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\potential_utf-0.1.3\src\ustr.rs:

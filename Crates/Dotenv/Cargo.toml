@@ -1,0 +1,10 @@
+[package]
+name = "Dotenv"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+dotenv = "0.15.0"
+dotenvy = "0.15.7"
+envy = "0.4.2"
+serde = { version = "1.0.225", features = ["derive"] }

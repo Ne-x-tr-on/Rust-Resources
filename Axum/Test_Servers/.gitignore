@@ -1,0 +1,25 @@
+# Rust/Cargo
+/target/           # compiled binaries and intermediate files
+**/*.rs.bk         # optional backup files
+
+# Cargo.lock is optional to track for libraries, but often ignored in projects
+# Cargo.lock
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Node modules if you ever have frontend (Next.js, etc.)
+node_modules/

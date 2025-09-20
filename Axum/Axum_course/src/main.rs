@@ -19,18 +19,22 @@
 // }
 
 
-// use axum::{
-//     Router,
-//     routing::get,
-// };
-// #[tokio::main]
-// async fn main(){
-//     let app = Router::new().
-//     route("/",get(||async {"Hello World"}));
+use axum::{
+    Router,
+    routing::get,
+};
+use tokio::net::TcpListener;
+#[tokio::main]
+async fn main(){
+    let app = Router::new().
+    route("/",get(||async {"Hello World"}));
 
-//     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
+    let listener = TcpListener::bind("0.0.0.0:3000").await.unwrap();
+    println!("Server Running on port:\n{}",listener.local_addr().unwrap());
 
-//     axum::serve(listener,app)
-//     .await
-//     .unwrap();
-// }
+    axum::serve(listener,app)
+    .await
+    .unwrap();
+    // println!("Server Running on port:\n{}",listener.local_addr().unwrap());
+}
+
