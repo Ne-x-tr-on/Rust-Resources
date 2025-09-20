@@ -40,30 +40,29 @@
 
 
 // Handling .env files in Multiple Environments
-
 // .env -> Default
 // .env.development -> development
 // .env.production -> production
 
-// use dotenv::from_filename; // Use from_filename to load a specific .env file
-// use std::env;
+use dotenv::from_filename; // Use from_filename to load a specific .env file
+use std::env;
 
-// fn main() {
-//     // Load a custom .env file
-//     from_filename(".env.development").ok();
+fn main() {
+    // Load a custom .env file
+    from_filename(".env.development").ok();
 
-//     // Access environment variable
-//     let db_url = env::var("DATABASE_URL").expect("DATABASE_URL missing");
-//     println!("DB URL: {}", db_url);
-// }
+    // Access environment variable
+    let db_url = env::var("DATABASE_URL").expect("DATABASE_URL missing");
+    println!("DB URL: {}", db_url);
+}
 
 
 
 // dotenvy
-use dotenvy::dotenv;
-use std::env;
+// use dotenvy::dotenv;
+// use std::env;
 
-fn main() {
-    dotenv().ok();
-    println!("PORT: {}", env::var("PORT").unwrap());
-}
+// fn main() {
+//     dotenv().ok();
+//     println!("PORT: {}", env::var("PORT").unwrap());
+// }
