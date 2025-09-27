@@ -1,0 +1,1 @@
+fn(Form<SignupForm>) -> impl Future<Output = Json<{type error}>> {signup_submit}: Handler<_, _>

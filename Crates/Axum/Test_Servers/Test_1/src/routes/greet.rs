@@ -10,3 +10,5 @@ async fn greet() -> &'static str {
 pub fn greet_routes() -> Router {
     Router::new().route("/greet", get(greet))
 }
+
+
