@@ -39,18 +39,21 @@
 // }
 
 use axum::{
-    routing::get,
+    routing::{get,post},
     Router,
+    response::IntoResponse,
+    Json,
 };
-
+use serde::Serialize;
 use std::net::SocketAddr;
 
 #[tokio::main]
 async fn main(){
     let app = Router::new()
-    .route("/",get(|| async {
-        "Sample Simple Axum Server"
-    }));
+     .route("/vehicle",get(vehicle_get).post(vehicle_post));
+  
+    // .route("/vehicle",get(vehicle_get))
+    // .route("/vehicle",post(vehicle_get));
     
  let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
  println!("Server running on port:\n{:?}",addr);
@@ -58,5 +61,29 @@ async fn main(){
 let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
 
 axum::serve(listener,app).await.unwrap();
+
+}
+#[derive(Serialize)]
+struct Vehicle{
+    manufacturer:String,
+    model:String,
+    year:u32,
+    id:String,
+}
+
+
+async fn vehicle_get()-> impl IntoResponse{
+    // println!("Welcome to the Vehicle Route")
+  let vehicle = Vehicle{
+    manufacturer:"Dodge".to_string(),
+    model:"Corolla".to_string(),
+    year:2020,
+    id:uuid::Uuid::new_v4().to_string(),
+  };
+  Json(vehicle)
+}
+
+async fn vehicle_post()-> impl IntoResponse{
+    // println!("Request Received from Vehicle Route")
 }
 
