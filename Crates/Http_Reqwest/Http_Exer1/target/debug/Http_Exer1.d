@@ -1,1 +1,0 @@
-D:\playground\RustPlayground\Crates\Http_Reqwest\Http_Exer1\target\debug\Http_Exer1.exe: D:\playground\RustPlayground\Crates\Http_Reqwest\Http_Exer1\src\get.rs D:\playground\RustPlayground\Crates\Http_Reqwest\Http_Exer1\src\main.rs D:\playground\RustPlayground\Crates\Http_Reqwest\Http_Exer1\src\post.rs

@@ -22,3 +22,6 @@ RustBooks/
 
 # Windows
 Thumbs.db
+
+**/*.d
+Makefile
