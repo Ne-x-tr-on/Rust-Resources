@@ -4,5 +4,11 @@ Invoke-RestMethod -Uri http://localhost:3000/vehicle -Method Get
 # Post New Vehicle
 Invoke-RestMethod -Uri http://localhost:3000/vehicle -Method Post
 
+# Post bank form
+Invoke-RestMethod -Uri http://localhost:3000/bank_form -Method Post
+
 # Using a WebRequets
 Invoke-WebRequest -Uri http://localhost:3000/vehicle -Method Post
+
+#Post New Login form
+Invoke-WebRequest -Uri http://localhost:3000/login -Method Post

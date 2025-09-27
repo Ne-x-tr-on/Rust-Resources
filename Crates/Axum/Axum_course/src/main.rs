@@ -1,89 +1,99 @@
-// use axum::{routing::get, Router};
-// use std::net::SocketAddr;
-// use tokio::net::TcpListener;
-
-// #[tokio::main]
-// async fn main() {
-//     // define routes
-//     let app = Router::new().route("/", get(|| async { "Hello, Neza CEO and Founder" }));
-
-//     // bind a TCP listener
-//     let listener = TcpListener::bind("127.0.0.1:8000").await.unwrap();
-
-//     println!("🚀 Server running on http://{}", listener.local_addr().unwrap());
-
-//     // serve using axum::serve
-//     axum::serve(listener, app)
-//         .await
-//         .unwrap();
-// }
-
-
-// use axum::{
-//     Router,
-//     routing::get,
-// };
-// use tokio::net::TcpListener;
-// #[tokio::main]
-// async fn main(){
-//     let app = Router::new().
-//     route("/",get(||async {"Welcome to Axum"}));
-
-//     let listener = TcpListener::bind("0.0.0.0:3000").await.unwrap();
-//     println!("Server Running on port:\n{}",listener.local_addr().unwrap());
-
-//     axum::serve(listener,app)
-//     .await
-//     .unwrap();
-//     // println!("Server Running on port:\n{}",listener.local_addr().unwrap());
-// }
-
 use axum::{
-    routing::{get,post},
+    routing::{get, post},
     Router,
     response::IntoResponse,
     Json,
+    extract::Json as ExtractJson, 
 };
-use serde::Serialize;
+use serde::{
+    Serialize,
+     Deserialize
+}; 
+
 use std::net::SocketAddr;
+use uuid::Uuid;
 
 #[tokio::main]
-async fn main(){
+async fn main() {
     let app = Router::new()
-     .route("/vehicle",get(vehicle_get).post(vehicle_post));
-  
-    // .route("/vehicle",get(vehicle_get))
-    // .route("/vehicle",post(vehicle_get));
-    
- let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
- println!("Server running on port:\n{:?}",addr);
+        .route("/vehicle", get(vehicle_get).post(vehicle_post))
+        .route("/bank_form", get(bank_form))
+        .route("/login", post(login)); // ✅ separated login route
 
-let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+    println!("🚀 Server running on http://{}", addr);
 
-axum::serve(listener,app).await.unwrap();
-
+    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+    axum::serve(listener, app).await.unwrap();
 }
+
 #[derive(Serialize)]
-struct Vehicle{
-    manufacturer:String,
-    model:String,
-    year:u32,
-    id:String,
+struct Vehicle {
+    manufacturer: String,
+    model: String,
+    year: u32,
+    id: String,
 }
 
-
-async fn vehicle_get()-> impl IntoResponse{
-    // println!("Welcome to the Vehicle Route")
-  let vehicle = Vehicle{
-    manufacturer:"Dodge".to_string(),
-    model:"Corolla".to_string(),
-    year:2020,
-    id:uuid::Uuid::new_v4().to_string(),
-  };
-  Json(vehicle)
+async fn vehicle_get() -> impl IntoResponse {
+    let vehicle = Vehicle {
+        manufacturer: "Dodge".to_string(),
+        model: "Corolla".to_string(),
+        year: 2020,
+        id: Uuid::new_v4().to_string(),
+    };
+    Json(vehicle)
 }
 
-async fn vehicle_post()-> impl IntoResponse{
-    // println!("Request Received from Vehicle Route")
+async fn vehicle_post() -> impl IntoResponse {
+    let response = serde_json::json!({
+        "status": "success",
+        "message": "Vehicle POST request received"
+    });
+    Json(response)
 }
 
+#[derive(Serialize)]
+struct Form {
+    name: String,
+    gender: String,
+    phone_no: String, // ✅ fixed to String instead of i32
+}
+
+async fn bank_form() -> impl IntoResponse {
+    let test_form = Form {
+        name: "Benjamin".to_string(),
+        gender: "Male".to_string(),
+        phone_no: "0701090807".to_string(),
+    };
+    Json(test_form)
+}
+
+#[derive(Deserialize)] // ✅ to accept JSON from client
+struct LoginRequest {
+    username: String,
+    password: String,
+}
+
+#[derive(Serialize)]
+struct LoginResponse {
+    status: String,
+    message: String,
+}
+
+async fn login(ExtractJson(payload): ExtractJson<LoginRequest>) -> impl IntoResponse {
+    // ✅ Normally you'd verify the password hash from DB
+    if payload.username == "Newton" && payload.password == "password123" {
+        let response = LoginResponse {
+            status: "success".to_string(),
+            message: "Login successful!".to_string(),
+        };
+        Json(response)
+    } else {
+        let response = LoginResponse {
+            status: "error".to_string(),
+            message: "Invalid credentials".to_string(),
+        };
+        Json(response)
+    }
+}
