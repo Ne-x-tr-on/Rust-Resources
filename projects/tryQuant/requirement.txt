@@ -1,0 +1,24 @@
+# Core
+numpy
+pandas
+matplotlib
+seaborn
+
+# Financial data
+yfinance
+pandas-ta
+
+# Modeling & statistics
+scipy
+statsmodels
+scikit-learn
+xgboost
+
+# API / web
+fastapi
+uvicorn
+
+# Visualization / Dashboards
+plotly
+dash
+streamlit
