@@ -2,20 +2,24 @@ use axum::{
     routing::get,
     Router,
 };
-use tokio::net::TcpListener;
 
+use std::net::SocketAddr;
+
+#[allow(unused)]
 #[tokio::main]
-async fn main() {
-    // Build our application with a route
-    let app = Router::new().route("/", get(|| async { "Newton With Axum" }));
+async fn main(){
+    let tryapp = Router::new()
+    .route("/",get(logdata));
 
-    // Create a TCP listener
-    let listener = TcpListener::bind("0.0.0.0:3000")
-        .await
-        .expect("Failed to bind to port 3000");
+    let addr = SocketAddr::from(([127,0,0,1],3000));
+    println!("Server Running on port\n{:?}",addr);
 
-    // Start the server
-    axum::serve(listener, app.into_make_service())
-        .await
-        .unwrap();
+    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+
+    axum::serve(listener, tryapp).await.unwrap();
 }
+
+async fn logdata(){
+    println!("Log data Sent");
+}
+
