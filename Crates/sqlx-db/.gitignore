@@ -1,0 +1,13 @@
+# Rust build files
+/target
+**/*.rs.bk
+
+# IDE/editor configs
+*.swp
+*.swo
+.idea/
+.vscode/
+.DS_Store
+
+# Logs
+*.log
