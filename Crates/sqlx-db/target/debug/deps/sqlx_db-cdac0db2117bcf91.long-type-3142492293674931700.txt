@@ -1,2 +1,0 @@
-fn(State<Pool<Postgres>>, axum::Json<User>) -> impl Future<Output = axum::Json<User>> {add_user}
-fn(State<Pool<Postgres>>, axum::Json<User>) -> impl Future<Output = axum::Json<User>> {add_user}: Handler<_, _>
