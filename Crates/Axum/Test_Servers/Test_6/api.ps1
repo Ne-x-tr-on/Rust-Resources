@@ -1,1 +1,1 @@
-Invoke-Rest 
+Invoke-RestMethod 

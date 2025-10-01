@@ -1,0 +1,1 @@
+fn(State<Pool<Postgres>>) -> impl Future<Output = axum::Json<Vec<User>>> {list_users}: Handler<_, _>
