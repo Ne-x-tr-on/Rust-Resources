@@ -1,0 +1,2 @@
+fn(axum::Json<Vehicle>) -> impl std::future::Future<Output = axum::Json<Vehicle>> {vehicle_post}
+fn(axum::Json<Vehicle>) -> impl std::future::Future<Output = axum::Json<Vehicle>> {vehicle_post}: Handler<_, _>
