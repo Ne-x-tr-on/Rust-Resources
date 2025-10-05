@@ -47,7 +47,7 @@ async fn main() {
     let app = Router::new()
         .route("/", post(post_struct));
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], 9000));
+    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
     println!("🚀 Server running on http://{}", addr);
 
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
@@ -60,7 +60,7 @@ struct Data {
     age: i32,
 }
 
-async fn post_struct(Json(payload):Json<Data>) ->  impl IntoResponse{
+async fn post_struct(Json(payload):Json<Data>) ->  Json<Data>{
     println!("Received Data:\n{:?}",payload);
     let response = Data{
         name:payload.name,
