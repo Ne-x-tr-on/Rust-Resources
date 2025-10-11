@@ -1,0 +1,2 @@
+&Result<Pool<Postgres>, sqlx::Error>
+&Result<Pool<Postgres>, sqlx::Error>: sqlx::Acquire<'_>

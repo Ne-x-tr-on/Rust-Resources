@@ -12,7 +12,7 @@ pub async fn insert_profile(pool:&PgPool,username:String,full_name:String,email:
     ")
   .bind(username)
   .bind(full_name)
-  .bind(email)
+  // .bind(email)
   .fetch_one(pool)
   .await
 }

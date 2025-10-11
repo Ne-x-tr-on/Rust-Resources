@@ -1,0 +1,17 @@
+[package]
+name = "Sqlx_Course"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+dotenv = "0.15.0"
+chrono = { version = "0.4", features = ["serde"] } # only serde feature
+serde = { version = "1.0", features = ["derive"] }
+
+sqlx = { version = "0.7", features = [
+    "runtime-tokio-rustls", 
+    "postgres", 
+    "macros", 
+    "chrono"    # <- enables chrono types support in SQLx
+] }
+tokio = { version = "1.0", features = ["full"] } # needed for async runtime

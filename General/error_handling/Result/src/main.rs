@@ -3,14 +3,21 @@
 //         Err(E),
 //     }
 
-fn divide(numerator:f64,denominator:f64) -> Optiont<f64> {
-    if denominator == 0.0 {
-        None
-    } else{
-            Some(numerator/denominator)
-        }
-}
-
+use std::fs::File;
+use std::io::ErrorKind;
 fn main(){
-    let results = divide(10.0,0.0);
+     let f = File::open("hello.txt");
+    //  let f = File::open("hello.txt").unwrap();
+
+    let f = match f {
+        Ok(file)=> file,
+        // Err(error) => panic!("Problem Opening the file:\n{}",error),
+
+        Err(error)=> match File::create("hello.txt"){
+            Ok(Fc)=> Fc,
+            Err(e)=>panic!("Error Creating the file :\n{}",e),
+        }
+    };
+
+    
 }

@@ -1,0 +1,9 @@
+[package]
+name = "Test_4"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+serde = { version = "1.0.228", features = ["derive"] }
+sqlx = { version = "0.8.6", features = ["runtime-tokio-rustls", "postgres", "macros"] }
+tokio = { version = "1.47.1", features = ["full"] }
