@@ -1,0 +1,11 @@
+[package]
+name = "sample_ChatSystem"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+colored = "3.0.0"
+serde = "1.0.228"
+serde_json = "1.0.145"
+tokio = "1.47.1"
+tokio-stream = "0.1.17"
