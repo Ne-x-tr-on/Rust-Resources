@@ -1,0 +1,1 @@
+fn(State<{type error}>, Json<NewBook>) -> impl Future<Output = Json<String>> {add_book}: Handler<_, _>

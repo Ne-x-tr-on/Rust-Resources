@@ -1,0 +1,2 @@
+fn(State<{type error}>, axum::Json<NewBook>) -> impl Future<Output = axum::Json<String>> {add_book}
+fn(State<{type error}>, axum::Json<NewBook>) -> impl Future<Output = axum::Json<String>> {add_book}: Handler<_, _>

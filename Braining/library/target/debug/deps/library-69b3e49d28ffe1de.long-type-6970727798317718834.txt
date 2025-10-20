@@ -1,0 +1,2 @@
+fn(State<{type error}>, axum::extract::Path<{type error}>) -> impl Future<Output = axum::Json<Option<Book>>> {get_book_by_id}
+fn(State<{type error}>, axum::extract::Path<{type error}>) -> impl Future<Output = axum::Json<Option<Book>>> {get_book_by_id}: Handler<_, _>

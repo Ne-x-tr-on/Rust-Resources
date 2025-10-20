@@ -1,0 +1,2 @@
+fn(State<Pool<Postgres>>, axum::extract::Path<Uuid>) -> impl std::future::Future<Output = axum::Json<std::option::Option<Book>>> {get_book_by_id}
+fn(State<Pool<Postgres>>, axum::extract::Path<Uuid>) -> impl std::future::Future<Output = axum::Json<std::option::Option<Book>>> {get_book_by_id}: Handler<_, _>
