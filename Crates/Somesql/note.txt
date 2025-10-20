@@ -1,0 +1,13 @@
+⚡ Suggested Learning Flow
+
+Backend & API mastery: Axum + SQLx + Tokio
+
+Async & modular architecture: Tower + Futures + Reqwest
+
+Error handling & logging: thiserror + tracing
+
+Authentication & security (if multi-user)
+
+Hardware & IoT integration (Arduino/Raspberry Pi)
+
+Testing & deployment: tokio-test + Docker (containerize services)
