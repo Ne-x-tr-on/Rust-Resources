@@ -5,6 +5,7 @@ use std::env;
 pub async fn create_pool()-> sqlx::Pool<sqlx::Postgres>{
   dotenv().ok();
   let database_url = env::var("DATABASE_URL").expect("Failed to connect to the database");
+  println!("{}",database_url);
   let pool = PgPoolOptions::new()
       .max_connections(5)
       .connect(&database_url)

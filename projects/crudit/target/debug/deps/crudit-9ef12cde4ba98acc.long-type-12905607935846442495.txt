@@ -1,0 +1,2 @@
+fn(State<Arc<Pool<Postgres>>>, axum::Json<User>) -> impl Future<Output = axum::Json<&'static str>> {add_user}
+fn(State<Arc<Pool<Postgres>>>, axum::Json<User>) -> impl Future<Output = axum::Json<&'static str>> {add_user}: Handler<_, _>
