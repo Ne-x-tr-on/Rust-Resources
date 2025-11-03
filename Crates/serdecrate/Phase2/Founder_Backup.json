@@ -1,8 +1,62 @@
 [
   {
-    "id": "ff786e4f-74dd-4269-9d44-f7775b22dc56",
+    "id": "56e8f02b-c0a7-4078-b48c-a20765b5146b",
     "name": "Newton",
     "role": "Backend_Developer",
-    "last_updated": "2025-11-03 00:48:38.402660800 UTC"
+    "last_updated": "2025-11-03 03:20:33.307438800 UTC"
+  },
+  {
+    "id": "83eeb8c0-10cf-40ec-b99d-2ad76b970355",
+    "name": "Shillah",
+    "role": "Frontend_Engineer",
+    "last_updated": "2025-11-03 03:20:33.307485300 UTC"
+  },
+  {
+    "id": "1afa5ea3-4e50-43b2-b2e0-f7a5032ce6ad",
+    "name": "Ridhwan",
+    "role": "Mobile_Developer",
+    "last_updated": "2025-11-03 03:20:33.307488900 UTC"
+  },
+  {
+    "id": "b680e26b-0b7d-4220-af07-63fcc000c7b4",
+    "name": "Melissa",
+    "role": "UI/UX_Designer",
+    "last_updated": "2025-11-03 03:20:33.307491700 UTC"
+  },
+  {
+    "id": "795eddd7-7d6e-4c10-9f47-563aa7fda259",
+    "name": "Kamau",
+    "role": "AI_Researcher",
+    "last_updated": "2025-11-03 03:20:33.307494500 UTC"
+  },
+  {
+    "id": "d3bde54b-2973-45d7-9d69-dd6502a95409",
+    "name": "Lydia",
+    "role": "Project_Manager",
+    "last_updated": "2025-11-03 03:20:33.307497200 UTC"
+  },
+  {
+    "id": "7a5eb4e6-523d-4455-b983-085aee4d7d9b",
+    "name": "Neza",
+    "role": "Fullstack_Developer",
+    "last_updated": "2025-11-03 03:20:33.307500400 UTC"
+  },
+  {
+    "id": "9bef98f2-b1ba-4e89-ad0b-dad2210605b1",
+    "name": "Derrick",
+    "role": "Cloud_Architect",
+    "last_updated": "2025-11-03 03:20:33.307515500 UTC"
+  },
+  {
+    "id": "6fbb8353-c102-4c2d-adcc-145975560b43",
+    "name": "Faith",
+    "role": "DevOps_Engineer",
+    "last_updated": "2025-11-03 03:20:33.307518600 UTC"
+  },
+  {
+    "id": "7f1925c1-298e-493d-8214-b4d54c2a5356",
+    "name": "Brian",
+    "role": "Data_Scientist",
+    "last_updated": "2025-11-03 03:20:33.307521100 UTC"
   }
 ]

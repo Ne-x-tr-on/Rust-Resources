@@ -4,25 +4,31 @@ use dotenvy::dotenv;
 use std::env;
 use serde_json::json;
 
-pub async fn post_data()->Result<(),Box<dyn Error>>{
-  dotenv().ok();
-  let url = env::var("LOCALHOST").expect("Failed to post");
+pub async fn post_data() -> Result<(), Box<dyn Error>> {
+    dotenv().ok();
 
-  let client = Client::new();
-  let payload = serde_json::json!({
-    "name":"Newton",
-    "age":"19",
-  });
+    // Get the URL from .env
+    let url = env::var("LOCALHOST").expect("Failed to fetch the URL");
 
-  let response = client
-    .post(&url)
-    .json(&payload)
-    .send()
-    .await?;
-   
-   println!("Status: {:?}",response.status());
-   let text = response.text().await?;
-   println!("Text:{:?}",text);
+    // Create the HTTP client
+    let client = Client::new();
 
-  Ok(())
+    // The JSON payload
+    let payload = json!({
+        "name": "Newton",
+        "Age": "19"
+    });
+
+    // Send the POST request
+    let response = client
+        .post(&url)
+        .json(&payload)
+        .send()
+        .await?;
+
+    // Print the response
+    let text = response.text().await?;
+    println!("✅ Server Response: {}", text);
+
+    Ok(())
 }

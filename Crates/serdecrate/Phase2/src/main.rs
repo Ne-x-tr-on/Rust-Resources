@@ -98,17 +98,72 @@ async fn add_founder(new_founder: Founder) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    let user1 = Founder {
-        id: Uuid::new_v4(),
-        name: "Newton".to_string(),
-        role: "Backend_Developer".to_string(),
-        last_updated: Utc::now().to_string(),
-    };
+    let founders = vec![
+        Founder {
+            id: Uuid::new_v4(),
+            name: "Newton".to_string(),
+            role: "Backend_Developer".to_string(),
+            last_updated: Utc::now().to_string(),
+        },
+        Founder {
+            id: Uuid::new_v4(),
+            name: "Shillah".to_string(),
+            role: "Frontend_Engineer".to_string(),
+            last_updated: Utc::now().to_string(),
+        },
+        Founder {
+            id: Uuid::new_v4(),
+            name: "Ridhwan".to_string(),
+            role: "Mobile_Developer".to_string(),
+            last_updated: Utc::now().to_string(),
+        },
+        Founder {
+            id: Uuid::new_v4(),
+            name: "Melissa".to_string(),
+            role: "UI/UX_Designer".to_string(),
+            last_updated: Utc::now().to_string(),
+        },
+        Founder {
+            id: Uuid::new_v4(),
+            name: "Kamau".to_string(),
+            role: "AI_Researcher".to_string(),
+            last_updated: Utc::now().to_string(),
+        },
+        Founder {
+            id: Uuid::new_v4(),
+            name: "Lydia".to_string(),
+            role: "Project_Manager".to_string(),
+            last_updated: Utc::now().to_string(),
+        },
+        Founder {
+            id: Uuid::new_v4(),
+            name: "Neza".to_string(),
+            role: "Fullstack_Developer".to_string(),
+            last_updated: Utc::now().to_string(),
+        },
+        Founder {
+            id: Uuid::new_v4(),
+            name: "Derrick".to_string(),
+            role: "Cloud_Architect".to_string(),
+            last_updated: Utc::now().to_string(),
+        },
+        Founder {
+            id: Uuid::new_v4(),
+            name: "Faith".to_string(),
+            role: "DevOps_Engineer".to_string(),
+            last_updated: Utc::now().to_string(),
+        },
+        Founder {
+            id: Uuid::new_v4(),
+            name: "Brian".to_string(),
+            role: "Data_Scientist".to_string(),
+            last_updated: Utc::now().to_string(),
+        },
+    ];
 
-    write_file(&vec![user1]).await?;
-    update_role("Ai Developer").await?;
+    write_file(&founders).await?;
+    update_role("AI_Developer").await?;
     Ok(())
 }
