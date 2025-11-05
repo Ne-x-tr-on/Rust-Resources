@@ -1,0 +1,2 @@
+fn() -> impl Future<Output = Result<{type error}, Box<(dyn StdError + 'static)>>> {sample_handler}
+fn() -> impl Future<Output = Result<{type error}, Box<(dyn StdError + 'static)>>> {sample_handler}: Handler<_, _>
