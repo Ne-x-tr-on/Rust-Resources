@@ -1,0 +1,2 @@
+fn(State<AppState>, Json<User>, {type error}) -> impl std::future::Future<Output = ()> {create_user}
+fn(State<AppState>, Json<User>, {type error}) -> impl std::future::Future<Output = ()> {create_user}: Handler<_, _>
