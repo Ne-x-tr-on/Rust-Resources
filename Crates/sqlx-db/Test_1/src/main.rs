@@ -1,3 +1,5 @@
+pub mod insert;
+pub mod model;
 use sqlx::postgres::PgPoolOptions;
 use std::env;
 
