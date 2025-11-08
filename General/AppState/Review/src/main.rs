@@ -1,3 +1,11 @@
+// Path parameter → dynamic part of URL (:name)
+
+// State → shared data across requests
+
+// Mutex → allows safe mutation of counter
+
+// Arc → allows multiple routes / threads to share the state safely
+
 use axum::{
     extract::State,
     routing::get,

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Users CRUD</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, button { margin: 5px; padding: 8px; }
+    .user { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>Users</h1>
+
+  <h2>Create User</h2>
+  <input type="text" id="username" placeholder="Username" />
+  <input type="email" id="email" placeholder="Email" />
+  <button onclick="createUser()">Add User</button>
+
+  <h2>All Users</h2>
+  <button onclick="listUsers()">Refresh List</button>
+  <div id="users"></div>
+
+  <script>
+    const API_URL = "http://127.0.0.1:3000"; // change to your deployed backend
+
+    async function createUser() {
+      const username = document.getElementById("username").value;
+      const email = document.getElementById("email").value;
+
+      const res = await fetch(`${API_URL}/user`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email })
+      });
+
+      const text = await res.text();
+      alert(text);
+      listUsers();
+    }
+
+    async function listUsers() {
+      const res = await fetch(`${API_URL}/users`);
+      const text = await res.text();
+      const container = document.getElementById("users");
+      container.innerHTML = "";
+      text.split("\n").forEach(line => {
+        if(line.trim() !== "") {
+          const div = document.createElement("div");
+          div.className = "user";
+          div.textContent = line;
+          container.appendChild(div);
+        }
+      });
+    }
+
+    // Load users on page load
+    listUsers();
+  </script>
+</body>
+</html>

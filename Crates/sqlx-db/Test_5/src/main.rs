@@ -24,5 +24,4 @@ sqlx::migrate!("./migrations")
     .await
     .expect("Failed to read from the Database");
 
-
 }
