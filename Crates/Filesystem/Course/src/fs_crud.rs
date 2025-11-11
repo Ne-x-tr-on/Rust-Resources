@@ -1,5 +1,11 @@
 use std::fs;
 use std::path::Path;
+use std::fs::remove_dir_all;
+
+pub fn remove_dir(){
+  let path = "./data";
+  _ = remove_dir_all(path);
+}
 
 pub fn create_dir(){
   let path = "./data";
@@ -7,6 +13,7 @@ pub fn create_dir(){
 
   if my_path.exists(){
     println!("Path: \n {} \nalready exist",path);
+    return;
   }
 
   let create_dir = fs::create_dir("./data");
@@ -18,6 +25,8 @@ pub fn create_dir(){
   }
 }
 
-// pub fn dir_path (){
-
-// }
+pub fn create_file(){
+  let path = "./data/file.txt";
+  let contents = "Here is your password";
+  _ = std::fs::write(path, contents)
+}
