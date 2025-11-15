@@ -1,0 +1,1 @@
+for<'a> fn(&'a std::rc::Rc<_, _>) -> std::rc::Rc<_, _> {<std::rc::Rc<_, _> as std::clone::Clone>::clone}
