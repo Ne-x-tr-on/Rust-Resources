@@ -2,7 +2,7 @@
 pub fn arrayfn(){
   let mut _cdt: [i32;10] = [1,2,3,4,5,6,7,8,9,10];
   // println!("{:?}",_cdt);
-  
+
   // Simple Vec to Extend the Array
   let mut _cdtvec: Vec<i32> = vec![1,2,3,4,5,6,7,8,9,10];
   _cdtvec.extend(_cdt);
@@ -27,6 +27,6 @@ pub fn str_slicefn(){
   let mut name:String = String::from("Nextron");
   let mut slice = &name[0..2];
   println!("Slice: {}", slice);
-  name.push_str("-Newton Kamau"); 
+  name.push_str("Newton Kamau");
   println!("Full name: {}", name);
 }

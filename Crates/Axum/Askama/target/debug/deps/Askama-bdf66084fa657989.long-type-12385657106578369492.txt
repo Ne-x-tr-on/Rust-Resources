@@ -1,0 +1,2 @@
+fn(axum::Form<SignupForm>) -> impl std::future::Future<Output = axum::Json<{type error}>> {signup_submit}
+fn(axum::Form<SignupForm>) -> impl std::future::Future<Output = axum::Json<{type error}>> {signup_submit}: axum::handler::Handler<_, _>
