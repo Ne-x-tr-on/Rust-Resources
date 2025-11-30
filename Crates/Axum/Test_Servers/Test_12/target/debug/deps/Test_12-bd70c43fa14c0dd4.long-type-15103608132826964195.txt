@@ -1,0 +1,2 @@
+fn(axum::Json<InsertData>) -> impl std::future::Future<Output = (axum::http::StatusCode, axum::Json<{type error}>)> {insert_handler}
+fn(axum::Json<InsertData>) -> impl std::future::Future<Output = (axum::http::StatusCode, axum::Json<{type error}>)> {insert_handler}: axum::handler::Handler<_, _>

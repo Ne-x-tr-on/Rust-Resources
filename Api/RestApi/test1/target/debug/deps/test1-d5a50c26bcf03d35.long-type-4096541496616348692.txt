@@ -1,0 +1,2 @@
+impl std::future::Future<Output = std::result::Result<tokio::net::TcpListener, std::io::Error>>
+impl std::future::Future<Output = std::result::Result<tokio::net::TcpListener, std::io::Error>>: axum::serve::Listener

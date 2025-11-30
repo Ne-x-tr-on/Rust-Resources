@@ -1,0 +1,2 @@
+fn(Json<InsertData>) -> impl std::future::Future<Output = (StatusCode, Json<InsertResponse>)> {insert_handler}
+fn(Json<InsertData>) -> impl std::future::Future<Output = (StatusCode, Json<InsertResponse>)> {insert_handler}: Handler<_, _>
