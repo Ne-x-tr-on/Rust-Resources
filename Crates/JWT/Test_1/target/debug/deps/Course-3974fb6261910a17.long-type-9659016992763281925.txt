@@ -1,0 +1,2 @@
+impl std::future::Future<Output = std::result::Result<axum::Json<model::LoginResponse>, axum::http::StatusCode>>
+impl std::future::Future<Output = std::result::Result<axum::Json<model::LoginResponse>, axum::http::StatusCode>>: axum::handler::Handler<_, _>

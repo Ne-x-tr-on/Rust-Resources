@@ -1,0 +1,8 @@
+[package]
+name = "JWT"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+jsonwebtoken = { version = "10.2.0", features = ["rust_crypto"] }
+serde = { version = "1.0.228", features = ["derive"] }
