@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cemall - Shop Analytics Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #9ca3af;
+            --gray-light: #e5e7eb;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #f8fafc;
+            color: var(--dark);
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            background: white;
+            border-right: 1px solid var(--gray-light);
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 24px 32px;
+            border-bottom: 1px solid var(--gray-light);
+            margin-bottom: 32px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: #f1f5f9;
+            border-left-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .nav-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .shop-info {
+            margin-top: auto;
+            padding: 24px;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .shop-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .shop-name {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .shop-status {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #d1fae5;
+            color: var(--success);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 32px;
+            overflow-y: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .date-selector {
+            padding: 10px 16px;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            background: white;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .download-btn {
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-card.primary {
+            border-top: 4px solid var(--primary);
+        }
+
+        .stat-card.success {
+            border-top: 4px solid var(--success);
+        }
+
+        .stat-card.warning {
+            border-top: 4px solid var(--warning);
+        }
+
+        .stat-card.secondary {
+            border-top: 4px solid var(--secondary);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .stat-icon.primary {
+            background: linear-gradient(135deg, var(--primary), #60a5fa);
+        }
+
+        .stat-icon.success {
+            background: linear-gradient(135deg, var(--success), #34d399);
+        }
+
+        .stat-icon.warning {
+            background: linear-gradient(135deg, var(--warning), #fbbf24);
+        }
+
+        .stat-icon.secondary {
+            background: linear-gradient(135deg, var(--secondary), #a78bfa);
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .stat-change {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .stat-change.positive {
+            color: var(--success);
+        }
+
+        .stat-change.negative {
+            color: var(--danger);
+        }
+
+        /* Charts Section */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .chart-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .chart-title {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .chart-placeholder {
+            height: 300px;
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 100%;
+            padding: 0 20px 40px;
+        }
+
+        .chart-bar {
+            width: 40px;
+            background: linear-gradient(to top, var(--primary), #93c5fd);
+            border-radius: 4px 4px 0 0;
+            position: relative;
+        }
+
+        .chart-bar:nth-child(2) {
+            height: 70%;
+            background: linear-gradient(to top, var(--secondary), #c4b5fd);
+        }
+
+        .chart-bar:nth-child(3) {
+            height: 90%;
+        }
+
+        .chart-bar:nth-child(4) {
+            height: 60%;
+            background: linear-gradient(to top, var(--success), #6ee7b7);
+        }
+
+        .chart-bar:nth-child(5) {
+            height: 80%;
+            background: linear-gradient(to top, var(--warning), #fcd34d);
+        }
+
+        .chart-bar-label {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        /* Top Products */
+        .products-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .products-table th {
+            text-align: left;
+            padding: 16px;
+            font-weight: 600;
+            color: var(--gray);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .products-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .product-row:hover {
+            background: #f8fafc;
+        }
+
+        .product-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .product-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .product-name {
+            font-weight: 500;
+        }
+
+        .product-category {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .trend-indicator {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .trend-up {
+            background: #d1fae5;
+            color: var(--success);
+        }
+
+        .trend-down {
+            background: #fee2e2;
+            color: var(--danger);
+        }
+
+        /* Recent Orders */
+        .orders-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .order-item:hover {
+            background: #f1f5f9;
+        }
+
+        .order-status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background: #d1fae5;
+            color: var(--success);
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: var(--warning);
+        }
+
+        .status-processing {
+            background: #dbeafe;
+            color: var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .header-controls {
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .main-content {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <div class="logo-text">Cemall</div>
+            </div>
+
+            <nav>
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    Orders
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-box"></i>
+                    Products
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    Customers
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    Reports
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </a>
+            </nav>
+
+            <div class="shop-info">
+                <div class="shop-avatar">
+                    <i class="fas fa-store-alt"></i>
+                </div>
+                <div class="shop-name">Urban Fashion Store</div>
+                <div class="shop-status">Active</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1>Shop Analytics Dashboard</h1>
+                <div class="header-controls">
+                    <select class="date-selector">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>Last quarter</option>
+                        <option>Year to date</option>
+                    </select>
+                    <button class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Export Report
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card primary">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-label">Total Revenue</div>
+                            <div class="stat-value">$24,580</div>
+                        </div>
+                        <div class="stat-icon primary">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        12.5% from last month
+                    </div>
+                </div>
+
+                <div class="stat-card success">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-label">Total Orders</div>
+                            <div class="stat-value">1,247</div>
+                        </div>
+                        <div class="stat-icon success">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        8.2% from last month
+                    </div>
+                </div>
+
+                <div class="stat-card warning">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-label">Avg. Order Value</div>
+                            <div class="stat-value">$86.42</div>
+                        </div>
+                        <div class="stat-icon warning">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                    <div class="stat-change negative">
+                        <i class="fas fa-arrow-down"></i>
+                        2.1% from last month
+                    </div>
+                </div>
+
+                <div class="stat-card secondary">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-label">Conversion Rate</div>
+                            <div class="stat-value">3.24%</div>
+                        </div>
+                        <div class="stat-icon secondary">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        0.8% from last month
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Sales Performance</div>
+                        <div class="date-selector" style="padding: 6px 12px; font-size: 14px;">
+                            Monthly
+                        </div>
+                    </div>
+                    <div class="chart-placeholder">
+                        <div class="chart-bars">
+                            <div class="chart-bar" style="height: 50%">
+                                <div class="chart-bar-label">Jan</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="chart-bar-label">Feb</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="chart-bar-label">Mar</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="chart-bar-label">Apr</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="chart-bar-label">May</div>
+                            </div>
+                            <div class="chart-bar" style="height: 40%">
+                                <div class="chart-bar-label">Jun</div>
+                            </div>
+                            <div class="chart-bar" style="height: 95%">
+                                <div class="chart-bar-label">Jul</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: var(--primary);"></div>
+                            <span>Revenue</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: var(--secondary);"></div>
+                            <span>Orders</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Top Products</div>
+                    </div>
+                    <table class="products-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Sales</th>
+                                <th>Trend</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="product-row">
+                                <td>
+                                    <div class="product-info">
+                                        <div class="product-icon" style="background: var(--primary);">
+                                            <i class="fas fa-tshirt"></i>
+                                        </div>
+                                        <div>
+                                            <div class="product-name">Premium T-Shirt</div>
+                                            <div class="product-category">Apparel</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>$4,280</td>
+                                <td><span class="trend-indicator trend-up">+24%</span></td>
+                            </tr>
+                            <tr class="product-row">
+                                <td>
+                                    <div class="product-info">
+                                        <div class="product-icon" style="background: var(--secondary);">
+                                            <i class="fas fa-sneakers"></i>
+                                        </div>
+                                        <div>
+                                            <div class="product-name">Running Shoes</div>
+                                            <div class="product-category">Footwear</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>$3,750</td>
+                                <td><span class="trend-indicator trend-up">+18%</span></td>
+                            </tr>
+                            <tr class="product-row">
+                                <td>
+                                    <div class="product-info">
+                                        <div class="product-icon" style="background: var(--success);">
+                                            <i class="fas fa-cap"></i>
+                                        </div>
+                                        <div>
+                                            <div class="product-name">Designer Cap</div>
+                                            <div class="product-category">Accessories</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>$2,150</td>
+                                <td><span class="trend-indicator trend-down">-5%</span></td>
+                            </tr>
+                            <tr class="product-row">
+                                <td>
+                                    <div class="product-info">
+                                        <div class="product-icon" style="background: var(--warning);">
+                                            <i class="fas fa-backpack"></i>
+                                        </div>
+                                        <div>
+                                            <div class="product-name">Backpack</div>
+                                            <div class="product-category">Bags</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>$1,980</td>
+                                <td><span class="trend-indicator trend-up">+12%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Recent Orders & Performance -->
+            <div class="charts-grid" style="margin-bottom: 0;">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Recent Orders</div>
+                    </div>
+                    <div class="orders-list">
+                        <div class="order-item">
+                            <div>
+                                <div style="font-weight: 600;">#ORD-7842</div>
+                                <div style="font-size: 14px; color: var(--gray);">John Smith • 2 items</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-weight: 600;">$142.50</div>
+                                <div class="order-status status-completed">Completed</div>
+                            </div>
+                        </div>
+                        <div class="order-item">
+                            <div>
+                                <div style="font-weight: 600;">#ORD-7841</div>
+                                <div style="font-size: 14px; color: var(--gray);">Emma Johnson • 5 items</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-weight: 600;">$256.80</div>
+                                <div class="order-status status-processing">Processing</div>
+                            </div>
+                        </div>
+                        <div class="order-item">
+                            <div>
+                                <div style="font-weight: 600;">#ORD-7840</div>
+                                <div style="font-size: 14px; color: var(--gray);">Michael Brown • 1 item</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-weight: 600;">$64.99</div>
+                                <div class="order-status status-pending">Pending</div>
+                            </div>
+                        </div>
+                        <div class="order-item">
+                            <div>
+                                <div style="font-weight: 600;">#ORD-7839</div>
+                                <div style="font-size: 14px; color: var(--gray);">Sarah Davis • 3 items</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-weight: 600;">$189.75</div>
+                                <div class="order-status status-completed">Completed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Traffic Sources</div>
+                    </div>
+                    <div class="chart-placeholder" style="height: 250px; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 14px; color: var(--gray); margin-bottom: 16px;">Traffic Distribution</div>
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                                <div style="text-align: center;">
+                                    <div style="width: 80px; height: 80px; border-radius: 50%; background: conic-gradient(var(--primary) 0% 45%, var(--secondary) 45% 70%, var(--success) 70% 85%, var(--warning) 85% 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
+                                        <div style="width: 60px; height: 60px; border-radius: 50%; background: white;"></div>
+                                    </div>
+                                    <div style="font-weight: 600;">Direct: 45%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-legend" style="justify-content: center;">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: var(--primary);"></div>
+                            <span>Direct (45%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: var(--secondary);"></div>
+                            <span>Social (25%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: var(--success);"></div>
+                            <span>Organic (15%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: var(--warning);"></div>
+                            <span>Referral (15%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

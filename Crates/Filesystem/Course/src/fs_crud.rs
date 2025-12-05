@@ -27,6 +27,6 @@ pub fn create_dir(){
 
 pub fn create_file(){
   let path = "./data/file.txt";
-  let contents = "Here is your password";
+  let contents = "Johnte";
   _ = std::fs::write(path, contents)
 }
